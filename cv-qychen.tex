@@ -1,0 +1,268 @@
+%!TeX program = pdflatex
+% Geoff Boeing's Curriculum Vitae
+% Email: boeing@usc.edu
+% Web: https://geoffboeing.com/
+% Repo: https://github.com/gboeing/cv
+
+\documentclass[11pt,letterpaper]{report}
+
+\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{setspace} % custom line spacing
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{float}
+
+% what is your name?
+\newcommand{\myname}{Qingyu Chen}
+
+% select default typefaces
+\usepackage{ebgaramond} % document's serif typeface
+\usepackage{tgheros}    % document's sans serif typeface
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{25pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=0.8in, 
+    bottom=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% suppress page number
+\pagenumbering{gobble}
+
+% make unordered lists without bullets and use compact spacing
+% 重新定义 itemize 的默认行为
+\setlist[itemize]{
+    leftmargin=0em, % 默认缩进
+    label={},       % 移除 bullet
+    itemsep=\itemsep,    % 紧凑的项间距
+    parsep=\itemsep,     % 段间距
+    topsep=\itemsep      % 列表上下间距
+}
+
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {city planning, housing, street networks, transportation, urban design, urban informatics},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \begin{minipage}[b]{0.500\textwidth}
+        \namefont{\myname}
+            
+    \end{minipage}
+    \begin{minipage}[b]{0.495\textwidth}
+        \begin{figure}[H]
+        \flushright
+        \includegraphics[width=0.5\textwidth]{econoxlogo.png}
+        \label{fig:my_label}
+        \end{figure}     
+    \end{minipage}
+
+
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        Nuffield College, University of Oxford \\
+        Oxford, OX1 1NF
+        
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \href{mailto:qingyu.chen@nuffield.ox.ac.uk}{qingyu.chen@nuffield.ox.ac.uk}\\
+        +44 (0) 7564 881307 \\
+    \end{minipage}
+
+    \section*{Research Fields}
+
+    \begin{itemize}
+
+        \item International Trade, Development Economics, Spatial Economics
+
+    \end{itemize}
+
+
+    \section*{Education}
+
+    \begin{description}[labelwidth=2.4cm, leftmargin=3.5cm, font=\normalfont]
+        \item[2024 -]  DPhil in Economics \hfill University of Oxford
+        % \begin{itemize}
+        %     \item - Supervisors: Paola Conconi, Niclas Moneke.
+        % \end{itemize}
+        \item[2022 - 2024]  MPhil in Economics (\textit{with Distinction}) \hfill University of Oxford
+        % \begin{itemize}
+        %     \item - Field courses taken: International Trade, Urban and Spatial Economics.
+        % \end{itemize}
+        \item[2018 - 2022]  BA in Financial Economics \hfill Peking University
+        \item[2021] Exchange Student \hfill UC-Berkeley
+
+    \end{description}
+
+    \section*{Working Papers}
+    \begin{itemize}
+        \item \underline{A Tale of Two Chinas: Trade Policy Uncertainty, Spatial Reallocation, and Uneven Structural Change}
+        \begin{itemize}[leftmargin=1em]
+            \justifying
+            \onehalfspacing
+            % \item How does trade policy uncertainty (TPU) in foreign markets shape the spatial distribution of economic activity within a country? Using detailed data on Chinese manufacturing firms, I examine the heterogeneous effects of reducing TPU in U.S. markets following China's WTO accession. While lower TPU spurs overall manufacturing growth, its benefits are disproportionately concentrated in counties with a strong pre-existing manufacturing base. In contrast, counties with weaker industrial foundations see a relative decline in local manufacturing activity. The adjustments occur almost exclusively along the extensive margin, indicating spatial reallocation. Regional productivity differences further spread these reallocation effects across space. Moreover, counties connected to manufacturing hubs through migration networks experience adverse effects, highlighting internal migration as a key mechanism for the propagation of shocks. These findings suggest that reducing TPU exacerbates spatial inequality by concentrating manufacturing activity in already developed regions.
+            \small
+            \item Presentations: RES 2024 PhD Conference (Portsmouth), 18th RGS Doctoral Conference (Dortmund), RES 2025 Annual Conference\textsuperscript{\textdagger} (Birmingham).
+        \end{itemize}
+        \vspace{0.5em}
+        \item \underline{Digging Up the Value Chain: Mineral Export Restrictions and Industrial Development}
+        \begin{itemize}[leftmargin=1em]
+            \justifying
+            \onehalfspacing
+            % \item This paper examines how developing countries employ strategic export restrictions as an industrial policy tool to move up the global value chain. Using global trade policy documents from 2008 to 2024, I show that developing countries often introduce export restrictions with the stated aim of securing domestic supply and promoting local value-added creation, particularly in the case of mineral raw materials. The products subject to restrictions typically exhibit high network centrality and revealed comparative advantage for the implementing country, even when the country may not yet demonstrate comparative advantage in downstream sectors. For mineral products, export restrictions significantly and persistently reduce exports of the targeted goods. At the same time, they lead to substantial increases in downstream exports, both in value and quantity. The effects are concentrated in base metal products and diminish as product-level complexity and the need for complementary inputs increase. Concurrent industrial policies---such as tax breaks and export promotion measures in downstream sectors---serve as strategic complements that amplify the impact of export restrictions. Despite short-term revenue losses, these interventions yield net positive returns in the long run. The findings suggest that strategic export restrictions on mineral raw materials can effectively foster domestic industrial development and help countries move up the global value chain.
+            \small
+            \item Presentations: Junior Research Day 2025 Spring* (QMUL).
+            \item * = scheduled, \textsuperscript{\textdagger} = declined due to time conflict.
+        \end{itemize}
+
+    \end{itemize}
+
+    \section*{Work in Progress}
+    \begin{itemize}
+        \item Can Solar Unlock Firm Productivity Traps? (with Tsungai Kupeta and Eddy Zou)
+        % \item Income Risk along the Development Spectrum (with Florian Trouvain)
+    \end{itemize}
+
+
+    \section*{Research Experiences}
+
+    \begin{description}[labelwidth=2.4cm, leftmargin=3cm, font=\normalfont]
+        \item[2023 - 2024] Research Assistant for Florian Trouvain \hfill University of Oxford
+        % \begin{itemize}
+        % \onehalfspacing
+        %     \item - Project: “Aggregate Savings, Risk, and Growth in a Rural-Urban Model of Development”.
+        %     \item - Cleaned household survey microdata in China, South Africa, and Ghana.
+        %     \item - Estimated the rural-urban differences in inequality and intergenerational elasticity of household income, consumption, and education outcomes.
+        %     \item - Embed the estimation results into an intertemporal choice framework with both persistent and transitory shocks.
+        % \end{itemize}
+
+        \item[2021 - 2022] Research Assistant for Shaoda Wang \hfill University of Chicago
+        % \begin{itemize}
+        % \onehalfspacing
+        %     \item - Project: “Policy Experimentation in China: The Political Economy of Policy Learning”.
+        %     \item - Scraped and cleaned comprehensive policy experimentation documents from 1980 to 2020.
+        %     \item - Analyzed positive selection in choosing experimentation sites and local politicians’ endogenous efforts, as well as their distorting effects on central government’s policy learning and policy outcomes.
+        % \end{itemize}
+
+        \item[2021 - 2022] Research Assistant for Franklin Qian \hfill UNC-Chapel Hill
+    %     \begin{itemize}
+    %     \onehalfspacing
+    %         \item - Project: “The Effects of High-skilled Firm Entry on Incumbent Residents”.
+    %         \item - Modified the LASSO model by adding decadal change variables of residential zipcode characteristics, predicting a new version of propensity score for the PSM–DID analysis.
+    %         \item - Estimated migration and financial outcomes for 8 million individuals on the AWS server using the modified PSM-DID model, validated and visualized regression results.
+        % \end{itemize}
+    \end{description}
+
+    \section*{Invited Events}
+    \begin{tablist}
+        \item[2025*] \tab{}JIE Summer School in International Economics \hfill LMU Munich - CESifo
+        \item[2025] \tab{}PEDL Young Scholars Matchmaking Workshop \hfill University of Oxford
+        
+    \end{tablist}
+
+    \section*{Awards}
+
+    \begin{tablist}
+        \item[2023] \tab{}Best Overall Performance in Examinations (Advanced Papers, \textit{proxime accessit}) \hfill University of Oxford
+        \item[2022] \tab{}Nuffield College - Department of Economics Joint Graduate Scholarship \hfill University of Oxford
+        \item[2022] \tab{}Outstanding Graduate [Dean's List] \hfill Peking University
+        \item[2021] \tab{}Leo Koguan Scholarship \hfill Peking University
+        % \item[2020] \tab{}Second Prize Scholarship, \textit{Peking University}
+        %\item[2019] \tab{}Second Prize Scholarship, \textit{Peking University}
+        \item[2018] \tab{}Mingde Fellowship \hfill Peking University \\
+        \vspace{1.5em}
+        \item[2018] \tab{}Gold Medal \& Absolute Winner (Ranked 1st), 50th International Chemistry Olympiad (IChO)
+        \item[2017] \tab{}Gold Medal, 31st Chinese Chemistry Olympiad (CChO)
+
+    \end{tablist}
+
+    \section*{Teaching Experiences}
+     \begin{tablist}
+        \item[2021] \tab{}Introduction to Finance \hfill Peking University
+        \item[2021] \tab{}Economy and Society (Freshman Seminar) \hfill Peking University
+        
+    \end{tablist}
+    
+    \section*{Referee Services}
+    \textit{Journal of International Economics}
+
+    \section*{Others}
+
+    \begin{tablist}
+
+        \item[Programming] \tab{}Stata, MATLAB, Julia, Python, R, SQL, QGIS, \LaTeX
+        \item[Languages] \tab{}Chinese (native), English (fluent), Japanese (fluent)
+        \item[Citizenship] \tab{}Chinese
+    \end{tablist}
+
+    % % display today's date as Month Year after a vertical space below the end of the text
+    % \begin{center}
+    %     \vfill
+    %     Updated \monthyeardate\today
+    % \end{center}
+    \vspace{20pt}
+    Last Update: April 2025
+
+\end{document}
